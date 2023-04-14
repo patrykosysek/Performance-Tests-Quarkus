@@ -69,7 +69,7 @@ public class FirmaService {
     }
 
     public PageImpl<FirmaDto> pobierzFirmy(FilterDto dto) {
-        PanacheQuery<Firma> query = Firma.findAll(); // Zakładając, że sortujemy według ID
+        PanacheQuery<Firma> query = Firma.findAll();
         query.page(Page.of(dto.getPage(), dto.getSize()));
 
         List<FirmaDto> dtoList = query.stream().map(firmaMapper::doFimraDto).collect(Collectors.toList());
@@ -226,7 +226,7 @@ public class FirmaService {
         }
         return null;
     }
-    
+
     public byte[] pobierzFakture(UUID fakturaId) {
         Plik plik = Plik.findById(fakturaId);
         return plik != null ? pobierzPlik(plik.getSciezka()) : null;
