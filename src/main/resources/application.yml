@@ -1,0 +1,16 @@
+
+quarkus:
+  datasource: # https://quarkus.io/guides/datasource
+    db-kind: postgresql
+    jdbc:
+      url: jdbc:postgresql://localhost:5433/quarkus
+      user: postgres
+      password: root
+
+  hibernate-orm:
+    database:
+      generation: update
+    log:
+      sql: true
+  http:
+    port: 9080
